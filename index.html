@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#111827" />
+  <meta name="description" content="MallSphere — a mall operations dashboard for tenant leasing, finance, maintenance, events, parking and reports." />
+  <title>MallSphere | Shopping Mall Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="MallSphere home"><span class="brand-mark">M</span><span><b>MallSphere</b><small>MALL OPERATIONS</small></span></a>
+      <div class="mall-select"><span class="mall-avatar">OS</span><span><b>Orion Square</b><small>Hyderabad · Demo</small></span><span class="chevron">⌄</span></div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav id="nav" aria-label="Main navigation">
+        <button class="nav-item active" data-page="overview"><span>▦</span> Overview</button>
+        <button class="nav-item" data-page="tenants"><span>♙</span> Tenants</button>
+        <button class="nav-item" data-page="leasing"><span>▤</span> Leasing &amp; Units</button>
+        <button class="nav-item" data-page="finance"><span>₹</span> Finance <i class="nav-dot"></i></button>
+        <button class="nav-item" data-page="maintenance"><span>⚒</span> Maintenance <em>4</em></button>
+        <button class="nav-item" data-page="events"><span>▣</span> Events &amp; Promotions</button>
+        <button class="nav-item" data-page="footfall"><span>⌁</span> Footfall</button>
+        <button class="nav-item" data-page="parking"><span>▥</span> Parking</button>
+        <div class="nav-label nav-label-spaced">MANAGEMENT</div>
+        <button class="nav-item" data-page="vendors"><span>♧</span> Vendors</button>
+        <button class="nav-item" data-page="security"><span>◇</span> Security &amp; Incidents</button>
+        <button class="nav-item" data-page="reports"><span>▧</span> Reports</button>
+      </nav>
+      <div class="sidebar-bottom"><button class="nav-item" data-page="settings"><span>⚙</span> Settings</button><div class="help-card"><span class="help-icon">?</span><b>Need a hand?</b><small>Explore the demo workspace and its sample workflows.</small><button id="helpBtn">View quick guide <span>↗</span></button></div><div class="profile"><div class="profile-avatar">AK</div><div><b>Alex Kumar</b><small>Mall Administrator</small></div><button title="Profile options" class="profile-more">•••</button></div></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar"><button id="mobileMenu" class="icon-btn mobile-menu" aria-label="Open navigation">☰</button><div class="breadcrumbs"><span>Workspace</span><b>/</b><strong id="breadcrumbPage">Overview</strong></div><div class="top-actions"><label class="search-box"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search anything..." aria-label="Search anything" /><kbd>⌘ K</kbd></label><button class="icon-btn" id="helpTop" aria-label="Help">?</button><button class="icon-btn notification" id="notificationsBtn" aria-label="Notifications">♧<i></i></button><div class="top-avatar">AK</div></div></header>
+      <div class="page-content" id="pageContent" tabindex="-1"></div>
+    </main>
+  </div>
+  <div id="toastRegion" class="toast-region" aria-live="polite"></div>
+  <div id="modalRoot"></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
