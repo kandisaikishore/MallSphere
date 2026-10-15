@@ -16,10 +16,21 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: npm
+      - name: Install test dependencies
+        run: npm install
+      - name: Install Chromium for browser tests
+        run: npx playwright install --with-deps chromium
       - name: Validate JavaScript syntax
-        run: node --check app.js
-      - name: Run regression smoke tests
-        run: node test-smoke.js
+        run: |
+          node --check app.js
+          node --check tests/server.js
+          node --check playwright.config.js
+          node --check tests/e2e.spec.js
+      - name: Run static regression smoke tests
+        run: npm run test:smoke
+      - name: Run browser end-to-end tests
+        run: npm run test:e2e
       - name: Verify required files
         run: |
           test -s index.html
