@@ -1,0 +1,37 @@
+name: MallSphere CI
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 2 * * *'
+permissions:
+  contents: read
+jobs:
+  static-and-regression-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate JavaScript syntax
+        run: node --check app.js
+      - name: Run regression smoke tests
+        run: node test-smoke.js
+      - name: Verify required files
+        run: |
+          test -s index.html
+          test -s styles.css
+          test -s app.js
+          test -s README.md
+          test -s docs/PRD.md
+          test -s docs/ARCHITECTURE.md
+          test -s docs/TEST_PLAN.md
+      - name: Validate HTML entry points
+        run: |
+          grep -q 'id="pageContent"' index.html
+          grep -q 'id="breadcrumbPage"' index.html
+          grep -q 'src="app.js"' index.html
+          grep -q 'href="styles.css"' index.html
