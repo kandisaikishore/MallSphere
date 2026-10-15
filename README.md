@@ -49,7 +49,7 @@ See [Product Requirements Document](docs/PRD.md), [Architecture](docs/ARCHITECTU
 
 ## Tests and CI
 
-GitHub Actions runs JavaScript syntax checks and basic static-file checks on pushes, pull requests, daily schedule and manual dispatch. This is a lightweight quality gate, not a substitute for browser-level, accessibility, security or business-acceptance testing.
+GitHub Actions runs JavaScript syntax checks, static regression checks and Playwright browser tests for navigation, tenant CRUD, persistence, search/filtering, mobile navigation and CSV download on pushes, pull requests, daily schedule and manual dispatch. Browser tests improve confidence but do not replace accessibility, security or business-acceptance testing.
 
 ## Deploy to GitHub Pages
 
