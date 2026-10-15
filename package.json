@@ -1,0 +1,13 @@
+{
+  "name": "mallsphere",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static shopping mall operations dashboard prototype",
+  "scripts": {
+    "test:smoke": "node test-smoke.js",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1"
+  }
+}
