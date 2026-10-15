@@ -2,8 +2,9 @@
 
 ## Automated checks
 - `node --check app.js` verifies JavaScript syntax.
-- `node test-smoke.js` checks required shell elements, navigation pages, core behavior markers, documentation and responsive styling.
-- GitHub Actions runs on pushes, pull requests, manual dispatch and daily schedule.
+- `npm run test:smoke` checks required shell elements, navigation pages, core behavior markers, documentation and responsive styling.
+- `npm run test:e2e` runs Playwright/Chromium tests for navigation, tenant create/edit/delete, persistence, search, status filtering, mobile menu and CSV download.
+- GitHub Actions runs syntax, smoke and browser tests on pushes, pull requests, manual dispatch and daily schedule.
 
 ## Regression checklist
 - [ ] Open Overview and each navigation section.
