@@ -1,8 +1,9 @@
 const { test, expect } = require('@playwright/test');
 
 test.beforeEach(async ({ page }) => {
-  await page.addInitScript(() => localStorage.removeItem('mallsphere-data'));
   await page.goto('/');
+  await page.evaluate(() => localStorage.removeItem('mallsphere-data'));
+  await page.reload();
 });
 
 test('all navigation sections render without runtime errors', async ({ page }) => {
