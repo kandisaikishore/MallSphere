@@ -39,6 +39,7 @@ test('tenant create, edit, delete and persistence work', async ({ page }) => {
   await expect(page.locator('tr').filter({ hasText: 'Updated Retailer' })).toBeVisible();
   await page.reload();
   await expect(page.locator('tr').filter({ hasText: 'Updated Retailer' })).toBeVisible();
+  await page.locator('[data-page="tenants"]').click();
   page.once('dialog', dialog => dialog.accept());
   await page.locator('tr').filter({ hasText: 'Updated Retailer' }).getByRole('button', { name: 'Delete' }).click();
   await expect(page.locator('tr').filter({ hasText: 'Updated Retailer' })).toHaveCount(0);
